@@ -1,0 +1,21 @@
+/* Only the knowledge popup is styled here. No other page sections are affected. */
+.knowledge-modal-panel{width:min(820px,calc(100% - 28px));padding:34px 36px 36px;border:1px solid rgba(86,111,95,.12);box-shadow:0 34px 90px rgba(20,24,21,.24);overflow:hidden}
+.knowledge-modal-panel .modal-close{right:18px;top:18px;background:#f5f3ed;transition:.2s}
+.knowledge-modal-panel .modal-close:hover{background:var(--orange-soft);transform:rotate(5deg) scale(1.05)}
+.knowledge-modal-head{display:flex;gap:18px;align-items:center;padding:2px 54px 22px 0;margin-bottom:20px;border-bottom:1px solid var(--line)}
+.knowledge-modal-icon{flex:0 0 68px;width:68px;height:68px;border-radius:20px;background:linear-gradient(135deg,var(--orange-soft),#fff7f1);display:grid;place-items:center;font-size:1.8rem;box-shadow:inset 0 0 0 1px rgba(223,140,93,.12)}
+.knowledge-modal-head .eyebrow{margin:0 0 6px;color:var(--green)}
+.knowledge-modal-panel h2{margin:0;font-size:clamp(2rem,4vw,2.65rem);line-height:1.08;letter-spacing:-.045em}
+.knowledge-modal-intro{margin:0 0 20px;padding:15px 17px;border:1px solid #eceae4;border-radius:16px;background:#faf9f5;color:#59605b;line-height:1.75}
+.knowledge-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:0}
+.knowledge-detail{border-radius:20px;padding:20px 22px;border:1px solid transparent;transition:.2s}
+.knowledge-detail:hover{transform:translateY(-2px)}
+.knowledge-detail.good{background:#edf4ef;border-color:#d9e7dd}
+.knowledge-detail.avoid{background:#fbf0ea;border-color:#f1ddd1}
+.knowledge-detail h3{margin:0 0 12px;font-size:1rem}
+.knowledge-detail ul{margin:0;padding-left:20px}
+.knowledge-detail li{margin:8px 0;line-height:1.65;font-size:.88rem;color:#4e5550}
+.knowledge-action{margin-top:14px;padding:18px 20px;border-radius:18px;background:linear-gradient(135deg,#f5f3ed,#faf8f3);border-left:4px solid var(--orange)}
+.knowledge-action strong{display:block;margin-bottom:4px;color:var(--ink)}
+.knowledge-action p{margin:0;color:#59605b;line-height:1.7}
+@media(max-width:650px){.knowledge-modal-panel{padding:28px 20px 24px}.knowledge-modal-head{padding-right:42px}.knowledge-modal-icon{width:58px;height:58px;flex-basis:58px}.knowledge-detail-grid{grid-template-columns:1fr}}
