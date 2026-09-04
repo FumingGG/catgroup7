@@ -15,14 +15,13 @@
 
   <header class="topbar">
     <div class="container nav">
-      <a href="#home" class="brand">
-        <span class="brand-icon">🐾</span>
-        <span>MDCU CATalogue</span>
-      </a>
+      <a href="#home" class="brand"><span class="brand-icon">🐾</span><span>MDCU CATalogue</span></a>
       <nav class="nav-links">
         <a href="#cats">แมวปรีดาลัย</a>
-        <a href="#knowledge">ความรู้เรื่องแมว</a>
-        <a href="#about">เกี่ยวกับโครงการ</a>
+        <a href="#map">แผนที่</a>
+        <a href="#knowledge">ความรู้</a>
+        <a href="#safety">ความปลอดภัย</a>
+        <a href="#about">โครงการ</a>
       </nav>
     </div>
   </header>
@@ -33,31 +32,18 @@
         <div class="hero-copy reveal">
           <span class="eyebrow">MDCU CATALOGUE · PREE-DALAI CAT PROJECT</span>
           <h1>รู้จักเขาก่อน<br><span>เข้าไปทัก</span></h1>
-          <p class="hero-lead">
-            เวชระเบียนแมวบริเวณหอพักปรีดาลัย ที่รวมชื่อ นิสัย จุดที่พบประจำ
-            ประวัติวัคซีนและข้อมูลการดูแล เพื่อให้คนกับแมวอยู่ร่วมกันได้อย่างสบายใจและปลอดภัยขึ้น
-          </p>
+          <p class="hero-lead">เวชระเบียนแมวบริเวณหอพักปรีดาลัย ที่รวมชื่อ นิสัย จุดที่พบประจำ ประวัติวัคซีน การทำหมัน และข้อควรรู้ก่อนเล่น เพื่อให้คนกับแมวอยู่ร่วมกันได้อย่างสบายใจและปลอดภัยขึ้น</p>
           <div class="hero-actions">
             <a class="btn primary" href="#cats">รู้จักแมวปรีดาลัย</a>
-            <a class="btn secondary" href="#knowledge">ดูวิธีอยู่ร่วมกับแมว</a>
+            <button class="btn secondary" id="randomCatBtn" type="button">สุ่มรู้จักแมว 1 ตัว ✨</button>
           </div>
           <div class="hero-note"><span class="live-dot"></span> Prototype สำหรับทดสอบระบบ QR และฐานข้อมูลแมว</div>
         </div>
 
         <div class="hero-card reveal">
-          <div class="hero-card-top">
-            <div class="hero-paw">🐾</div>
-            <span class="mini-label">HOW IT WORKS</span>
-          </div>
-          <div>
-            <h3>สแกนหนึ่งครั้ง<br>รู้จักแมวตัวนั้นมากขึ้น</h3>
-            <p>QR บนปลอกคอจะเชื่อมไปยังโปรไฟล์เฉพาะตัว เพื่อดูข้อมูลก่อนเข้าใกล้หรือเล่นกับแมว</p>
-          </div>
-          <div class="mini-steps">
-            <div><strong>01</strong><span>สแกน QR</span></div>
-            <div><strong>02</strong><span>เช็กโปรไฟล์</span></div>
-            <div><strong>03</strong><span>เข้าใกล้อย่างเหมาะสม</span></div>
-          </div>
+          <div class="hero-card-top"><div class="hero-paw">🐾</div><span class="mini-label">HOW IT WORKS</span></div>
+          <div><h3>สแกนหนึ่งครั้ง<br>รู้จักแมวตัวนั้นมากขึ้น</h3><p>QR บนปลอกคอจะเปิดโปรไฟล์เฉพาะตัว พร้อมสถานะสุขภาพและคำแนะนำก่อนเข้าใกล้</p></div>
+          <div class="mini-steps"><div><strong>01</strong><span>สแกน QR</span></div><div><strong>02</strong><span>เช็กโปรไฟล์</span></div><div><strong>03</strong><span>เข้าใกล้อย่างเหมาะสม</span></div></div>
         </div>
       </div>
     </section>
@@ -65,211 +51,113 @@
     <section id="cats" class="section cats-section">
       <div class="container">
         <div class="section-head reveal">
-          <div>
-            <span class="eyebrow">OUR CATS</span>
-            <h2>แมวที่คุณอาจเจอ<br>บริเวณปรีดาลัย</h2>
-          </div>
-          <p>กดที่การ์ดเพื่อดูโปรไฟล์ของแต่ละตัว ทั้งนิสัย จุดที่พบประจำ สถานะวัคซีน การทำหมัน และข้อควรรู้ก่อนเข้าใกล้</p>
+          <div><span class="eyebrow">OUR CATS</span><h2>แมวที่คุณอาจเจอ<br>บริเวณปรีดาลัย</h2></div>
+          <p>กดที่การ์ดเพื่อดูเวชระเบียนย่อ นิสัย จุดที่พบ สถานะวัคซีน การทำหมัน และ “ก่อนเล่นกับตัวนี้”</p>
         </div>
-
         <div class="toolbar reveal">
-          <div class="search">
-            <span>⌕</span>
-            <input id="searchInput" placeholder="ค้นหาชื่อ สี หรือบริเวณที่พบ..." />
-          </div>
-          <div class="filters">
-            <button class="filter active" data-filter="all">ทั้งหมด</button>
-            <button class="filter" data-filter="friendly">เป็นมิตร</button>
-            <button class="filter" data-filter="shy">ขี้อาย</button>
-            <button class="filter" data-filter="cautious">ควรระวัง</button>
-          </div>
+          <div class="search"><span>⌕</span><input id="searchInput" placeholder="ค้นหาชื่อ สี หรือบริเวณที่พบ..." /></div>
+          <div class="filters"><button class="filter active" data-filter="all">ทั้งหมด</button><button class="filter" data-filter="friendly">เป็นมิตร</button><button class="filter" data-filter="shy">ขี้อาย</button><button class="filter" data-filter="cautious">ควรระวัง</button></div>
         </div>
-
         <div id="catGrid" class="cat-grid"></div>
+      </div>
+    </section>
+
+    <section id="map" class="section map-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">PREE-DALAI CAT MAP</span><h2>มักเจอใคร<br>ตรงไหนบ้าง?</h2></div>
+          <p>แผนที่นี้เป็นภาพรวมสำหรับ prototype จุดจริงสามารถปรับให้ตรงกับพื้นที่สำรวจภายหลังได้</p>
+        </div>
+        <div class="campus-map reveal">
+          <div class="map-building building-a">อาคารเรียนรวม</div>
+          <div class="map-building building-b">หอพักปรีดาลัย</div>
+          <div class="map-building building-c">โรงอาหาร</div>
+          <div class="map-building building-d">สวน / พื้นที่พัก</div>
+          <button class="map-pin pin-1" data-cat="somjeed"><span>🐈</span><small>ส้มจี๊ด</small></button>
+          <button class="map-pin pin-2" data-cat="mali"><span>🐱</span><small>มะลิ</small></button>
+          <button class="map-pin pin-3" data-cat="nomyen"><span>😺</span><small>นมเย็น</small></button>
+          <button class="map-pin pin-4" data-cat="oreo"><span>🐾</span><small>โอรีโอ</small></button>
+          <div class="map-path path-1"></div><div class="map-path path-2"></div>
+        </div>
+        <div class="map-note reveal">📍 กดที่จุดแมวบนแผนที่เพื่อเปิดโปรไฟล์ตัวนั้น</div>
       </div>
     </section>
 
     <section class="project-strip">
       <div class="container project-strip-inner reveal">
-        <div>
-          <span class="eyebrow">WHY MDCU CATALOGUE</span>
-          <h2>ข้อมูลที่ชัดเจน ช่วยลดความกังวลก่อนเล่นกับแมว</h2>
-        </div>
-        <div class="project-points">
-          <span>✓ รู้สถานะวัคซีน</span>
-          <span>✓ รู้ลักษณะนิสัย</span>
-          <span>✓ ระวังการกัดและข่วน</span>
-        </div>
+        <div><span class="eyebrow">WHY MDCU CATALOGUE</span><h2>ข้อมูลที่ชัดเจน ช่วยลดความกังวลก่อนเล่นกับแมว</h2></div>
+        <div class="project-points"><span>✓ รู้สถานะวัคซีน</span><span>✓ รู้ลักษณะนิสัย</span><span>✓ ระวังการกัดและข่วน</span></div>
       </div>
     </section>
 
     <section id="knowledge" class="section knowledge-section">
       <div class="container">
         <div class="section-head knowledge-head reveal">
-          <div>
-            <span class="eyebrow">CAT KNOWLEDGE</span>
-            <h2>เกร็ดความรู้ที่ควรรู้<br>ก่อนเล่นกับแมว</h2>
-          </div>
-          <p>แต่ละการ์ดกดอ่านต่อได้ เหมือนโปรไฟล์แมว เพื่อดูรายละเอียด สิ่งที่ควรทำ และสิ่งที่ควรหลีกเลี่ยง</p>
+          <div><span class="eyebrow">CAT KNOWLEDGE</span><h2>เกร็ดความรู้ที่ควรรู้<br>ก่อนเล่นกับแมว</h2></div>
+          <p>กดแต่ละการ์ดเพื่ออ่านรายละเอียด สิ่งที่ควรทำ สิ่งที่ควรหลีกเลี่ยง และข้อควรจำ</p>
         </div>
-
         <div class="knowledge-grid">
-          <article class="knowledge-card reveal" data-knowledge="approach" tabindex="0">
-            <div class="knowledge-number">01</div>
-            <div class="knowledge-icon">✋</div>
-            <h3>เข้าใกล้อย่างใจเย็น</h3>
-            <p>ให้แมวเป็นฝ่ายตัดสินใจว่าจะเข้ามาหาเราหรือไม่</p>
-            <div class="knowledge-more">อ่านรายละเอียด <span>→</span></div>
-          </article>
-
-          <article class="knowledge-card reveal" data-knowledge="body" tabindex="0">
-            <div class="knowledge-number">02</div>
-            <div class="knowledge-icon">👀</div>
-            <h3>อ่านภาษากาย</h3>
-            <p>หูลู่ หางฟาด ตัวเกร็ง หรือเสียงขู่ คือสัญญาณว่าควรถอย</p>
-            <div class="knowledge-more">อ่านรายละเอียด <span>→</span></div>
-          </article>
-
-          <article class="knowledge-card reveal" data-knowledge="touch" tabindex="0">
-            <div class="knowledge-number">03</div>
-            <div class="knowledge-icon">🤍</div>
-            <h3>สัมผัสอย่างเหมาะสม</h3>
-            <p>เริ่มจากบริเวณที่แมวมักยอมรับง่าย และสังเกตปฏิกิริยาตลอดเวลา</p>
-            <div class="knowledge-more">อ่านรายละเอียด <span>→</span></div>
-          </article>
-
-          <article class="knowledge-card reveal" data-knowledge="food" tabindex="0">
-            <div class="knowledge-number">04</div>
-            <div class="knowledge-icon">🍽️</div>
-            <h3>ให้อาหารอย่างรับผิดชอบ</h3>
-            <p>เช็กข้อมูลก่อนให้อาหาร และหลีกเลี่ยงอาหารคนที่อาจเป็นอันตราย</p>
-            <div class="knowledge-more">อ่านรายละเอียด <span>→</span></div>
-          </article>
-
-          <article class="knowledge-card reveal" data-knowledge="vaccine" tabindex="0">
-            <div class="knowledge-number">05</div>
-            <div class="knowledge-icon">💉</div>
-            <h3>วัคซีนและการทำหมัน</h3>
-            <p>ใช้สถานะในโปรไฟล์เป็นข้อมูลประกอบ และไม่คาดเดาหากยังไม่ยืนยัน</p>
-            <div class="knowledge-more">อ่านรายละเอียด <span>→</span></div>
-          </article>
-
-          <article class="knowledge-card reveal" data-knowledge="scratch" tabindex="0">
-            <div class="knowledge-number">06</div>
-            <div class="knowledge-icon">🩹</div>
-            <h3>เมื่อถูกกัดหรือข่วน</h3>
-            <p>รู้ว่าควรทำอะไรทันที และเมื่อใดควรไปพบแพทย์</p>
-            <div class="knowledge-more">อ่านรายละเอียด <span>→</span></div>
-          </article>
+          <article class="knowledge-card reveal" data-knowledge="approach" tabindex="0"><div class="knowledge-number">01</div><div class="knowledge-icon">✋</div><h3>เข้าใกล้อย่างใจเย็น</h3><p>ให้แมวเป็นฝ่ายตัดสินใจว่าจะเข้ามาหาเราหรือไม่</p><div class="knowledge-more">อ่านรายละเอียด <span>→</span></div></article>
+          <article class="knowledge-card reveal" data-knowledge="body" tabindex="0"><div class="knowledge-number">02</div><div class="knowledge-icon">👀</div><h3>อ่านภาษากาย</h3><p>หูลู่ หางฟาด ตัวเกร็ง หรือเสียงขู่ คือสัญญาณว่าควรถอย</p><div class="knowledge-more">อ่านรายละเอียด <span>→</span></div></article>
+          <article class="knowledge-card reveal" data-knowledge="touch" tabindex="0"><div class="knowledge-number">03</div><div class="knowledge-icon">🤍</div><h3>สัมผัสอย่างเหมาะสม</h3><p>เริ่มจากบริเวณที่แมวยอมรับง่าย และสังเกตปฏิกิริยาตลอดเวลา</p><div class="knowledge-more">อ่านรายละเอียด <span>→</span></div></article>
+          <article class="knowledge-card reveal" data-knowledge="food" tabindex="0"><div class="knowledge-number">04</div><div class="knowledge-icon">🍽️</div><h3>ให้อาหารอย่างรับผิดชอบ</h3><p>เช็กข้อมูลก่อนให้อาหาร และหลีกเลี่ยงอาหารคนที่อาจเป็นอันตราย</p><div class="knowledge-more">อ่านรายละเอียด <span>→</span></div></article>
+          <article class="knowledge-card reveal" data-knowledge="vaccine" tabindex="0"><div class="knowledge-number">05</div><div class="knowledge-icon">💉</div><h3>วัคซีนและการทำหมัน</h3><p>ใช้สถานะในโปรไฟล์เป็นข้อมูลประกอบ และไม่คาดเดาหากยังไม่ยืนยัน</p><div class="knowledge-more">อ่านรายละเอียด <span>→</span></div></article>
+          <article class="knowledge-card reveal" data-knowledge="scratch" tabindex="0"><div class="knowledge-number">06</div><div class="knowledge-icon">🩹</div><h3>เมื่อถูกกัดหรือข่วน</h3><p>รู้ว่าควรทำอะไรทันที และเมื่อใดควรไปพบแพทย์</p><div class="knowledge-more">อ่านรายละเอียด <span>→</span></div></article>
         </div>
+      </div>
+    </section>
 
-        <div class="knowledge-callout reveal">
-          <div class="callout-icon">🐱</div>
-          <div>
-            <span class="eyebrow">REMEMBER</span>
-            <h3>เป้าหมายไม่ใช่แค่ “รู้จักแมว” แต่คือ “อยู่ร่วมกันได้อย่างมั่นใจ”</h3>
-            <p>MDCU CATalogue ช่วยให้ผู้ใช้งานเห็นข้อมูลที่จำเป็นก่อนเข้าใกล้ และช่วยให้ทีมดูแลติดตามข้อมูลของแมวแต่ละตัวเป็นระบบมากขึ้น</p>
-          </div>
+    <section id="safety" class="section safety-section">
+      <div class="container safety-grid reveal">
+        <div class="safety-copy">
+          <span class="eyebrow">BITE & SCRATCH</span>
+          <h2>ถ้าโดนกัดหรือข่วน<br>ควรทำอย่างไร?</h2>
+          <p>สถานะวัคซีนในเว็บเป็นข้อมูลประกอบ ไม่ได้แทนการประเมินทางการแพทย์ หากเกิดแผลควรดูแลแผลและประเมินความเสี่ยงอย่างเหมาะสม</p>
+          <button class="btn primary" data-knowledge="scratch">เปิดคู่มือแบบละเอียด</button>
         </div>
+        <div class="safety-steps">
+          <article><span>1</span><div><strong>ล้างแผลทันที</strong><p>ล้างด้วยน้ำไหลและสบู่ให้ทั่วถึง</p></div></article>
+          <article><span>2</span><div><strong>บันทึกว่าเป็นแมวตัวไหน</strong><p>เปิดโปรไฟล์หรือจำตำแหน่ง เวลา และลักษณะแมวไว้</p></div></article>
+          <article><span>3</span><div><strong>ประเมินความเสี่ยง</strong><p>หากแผลลึก มีเลือดออกมาก บวม แดง หรือกังวลเรื่องพิษสุนัขบ้า/บาดทะยัก ควรพบแพทย์</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="report" class="section report-section">
+      <div class="container report-card reveal">
+        <div><span class="eyebrow">HELP US KEEP IT UPDATED</span><h2>เห็นอะไรผิดปกติ?<br>ช่วยบอกทีมเราได้</h2><p>ใช้สำหรับแจ้งแมวบาดเจ็บ ปลอกคอหรือ QR หลุด พบแมวในจุดใหม่ หรือข้อมูลในเว็บไม่ตรงกับความจริง</p></div>
+        <div class="report-actions">
+          <button class="report-btn" data-report="injury">🩹 <span><strong>แมวบาดเจ็บ</strong><small>พบแผล ซึม หรือเดินผิดปกติ</small></span></button>
+          <button class="report-btn" data-report="collar">🏷️ <span><strong>ปลอกคอ / QR หลุด</strong><small>ป้ายชำรุดหรือสแกนไม่ได้</small></span></button>
+          <button class="report-btn" data-report="location">📍 <span><strong>พบแมวในจุดใหม่</strong><small>ช่วยอัปเดตพื้นที่ที่พบ</small></span></button>
+          <button class="report-btn" data-report="data">✏️ <span><strong>ข้อมูลไม่ตรง</strong><small>แจ้งข้อมูลที่ควรแก้ไข</small></span></button>
+        </div>
+        <div class="report-note">* ตอนนี้ปุ่มเป็น prototype — สามารถเชื่อม Google Form ของกลุ่มได้ภายหลัง</div>
       </div>
     </section>
 
     <section id="about" class="section about-section">
       <div class="container">
         <div class="about-hero reveal">
-          <div>
-            <span class="eyebrow">ABOUT MDCU CATALOGUE</span>
-            <h2>เวชระเบียนแมวปรีดาลัย<br>เพื่อคนและแมวที่อยู่ร่วมพื้นที่เดียวกัน</h2>
-            <p>โครงการพัฒนาฐานข้อมูลแมวบริเวณหอพักปรีดาลัย คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย โดยเชื่อมข้อมูลออนไลน์กับ QR Code บนปลอกคอและจุดประชาสัมพันธ์ในพื้นที่</p>
-          </div>
-          <div class="about-badge">
-            <span>📍</span>
-            <strong>หอพักปรีดาลัย</strong>
-            <small>คณะแพทยศาสตร์ จุฬาฯ</small>
-          </div>
+          <div><span class="eyebrow">ABOUT MDCU CATALOGUE</span><h2>เวชระเบียนแมวปรีดาลัย<br>เพื่อคนและแมวที่อยู่ร่วมพื้นที่เดียวกัน</h2><p>โครงการพัฒนาฐานข้อมูลแมวบริเวณหอพักปรีดาลัย คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย โดยเชื่อมข้อมูลออนไลน์กับ QR Code บนปลอกคอและจุดประชาสัมพันธ์ในพื้นที่</p></div>
+          <div class="about-badge"><span>📍</span><strong>หอพักปรีดาลัย</strong><small>คณะแพทยศาสตร์ จุฬาฯ</small></div>
         </div>
-
         <div class="objective-grid">
-          <article class="objective-card reveal">
-            <span class="objective-no">01</span>
-            <h3>สร้างฐานข้อมูลที่ติดตามได้</h3>
-            <p>รวบรวมชื่อ เพศ ลักษณะนิสัย จุดที่พบ ประวัติวัคซีน การทำหมัน และข้อมูลสุขภาพของแมวในพื้นที่ให้ค้นหาได้ง่าย</p>
-          </article>
-          <article class="objective-card reveal">
-            <span class="objective-no">02</span>
-            <h3>เพิ่มความสบายใจในการอยู่ร่วมกัน</h3>
-            <p>ช่วยให้นิสิตและบุคลากรมีข้อมูลก่อนเข้าใกล้แมว ลดความไม่แน่ใจ และเลือกวิธีปฏิสัมพันธ์กับแมวแต่ละตัวได้เหมาะสมขึ้น</p>
-          </article>
-          <article class="objective-card reveal">
-            <span class="objective-no">03</span>
-            <h3>ส่งเสริมการป้องกันโรคและอุบัติเหตุ</h3>
-            <p>เผยแพร่ข้อมูลวัคซีน ลักษณะนิสัย และข้อควรระวัง เพื่อเพิ่มความระมัดระวังต่อการกัด ข่วน และความเสี่ยงจากสัตว์สู่คน</p>
-          </article>
+          <article class="objective-card reveal"><span class="objective-no">01</span><h3>สร้างฐานข้อมูลที่ติดตามได้</h3><p>รวบรวมชื่อ เพศ ลักษณะนิสัย จุดที่พบ ประวัติวัคซีน การทำหมัน และข้อมูลสุขภาพของแมวในพื้นที่ให้ค้นหาได้ง่าย</p></article>
+          <article class="objective-card reveal"><span class="objective-no">02</span><h3>เพิ่มความสบายใจในการอยู่ร่วมกัน</h3><p>ช่วยให้นิสิตและบุคลากรมีข้อมูลก่อนเข้าใกล้แมว ลดความไม่แน่ใจ และเลือกวิธีปฏิสัมพันธ์กับแมวได้เหมาะสมขึ้น</p></article>
+          <article class="objective-card reveal"><span class="objective-no">03</span><h3>ส่งเสริมการป้องกันโรคจากแมวสู่คน</h3><p>เผยแพร่สถานะวัคซีน ลักษณะนิสัย และข้อควรระวัง เพื่อเพิ่มการป้องกันตนเองจากการกัด ข่วน และความเสี่ยงจากการสัมผัสแมว</p></article>
         </div>
-
-        <div class="timeline-card reveal">
-          <div class="timeline-head">
-            <div>
-              <span class="eyebrow">PROJECT ROADMAP</span>
-              <h3>จากการสำรวจ สู่ระบบที่ใช้งานจริง</h3>
-            </div>
-            <span class="timeline-period">ส.ค. — พ.ย. 2569</span>
-          </div>
-          <div class="timeline">
-            <div class="timeline-item done"><span></span><strong>สำรวจและสัมภาษณ์</strong><small>17–21 ส.ค.</small></div>
-            <div class="timeline-item done"><span></span><strong>ประสานผู้ดูแล</strong><small>ภายใน 31 ส.ค.</small></div>
-            <div class="timeline-item active"><span></span><strong>ฐานข้อมูล + Prototype</strong><small>ภายใน 15 ก.ย.</small></div>
-            <div class="timeline-item"><span></span><strong>ติดตั้ง QR และประชาสัมพันธ์</strong><small>12–16 ต.ค.</small></div>
-            <div class="timeline-item"><span></span><strong>ติดตามและประเมินผล</strong><small>ภายใน 1 พ.ย.</small></div>
-          </div>
-        </div>
-
-        <div class="impact-card reveal">
-          <div>
-            <span class="eyebrow">SUCCESS INDICATORS</span>
-            <h3>เราจะรู้ได้อย่างไรว่าโครงการช่วยได้จริง?</h3>
-          </div>
-          <div class="impact-items">
-            <div><strong>≥80%</strong><span>ของแมวในพื้นที่มีข้อมูลในระบบ</span></div>
-            <div><strong>≥80%</strong><span>ของผู้ตอบเข้าใจวิธีใช้ Tag เพื่อตรวจข้อมูล</span></div>
-            <div><strong>+20%</strong><span>เป้าหมายคะแนนความมั่นใจในการอยู่ร่วมกับแมว</span></div>
-          </div>
-        </div>
-
-        <div class="about-cta reveal">
-          <div>
-            <span class="eyebrow">FOLLOW THE PROJECT</span>
-            <h3>ติดตามการอัปเดตแมวและการพัฒนา MDCU CATalogue</h3>
-          </div>
-          <a href="#" class="btn primary">Instagram โครงการ</a>
-        </div>
+        <div class="project-roadmap reveal"><div class="roadmap-head"><span class="eyebrow">PROJECT ROADMAP · 2569</span><h3>จากสำรวจปัญหา → สู่การใช้งานจริง</h3></div><div class="timeline"><div><strong>17–21 ส.ค.</strong><span>สัมภาษณ์และสำรวจแมว</span></div><div><strong>31 ส.ค.</strong><span>ประสานผู้ดูแลและอาจารย์</span></div><div><strong>15 ก.ย.</strong><span>ฐานข้อมูล + QR prototype</span></div><div><strong>12–16 ต.ค.</strong><span>ติดปลอกคอและประชาสัมพันธ์</span></div><div><strong>1 พ.ย.</strong><span>ติดตามและประเมินผล</span></div></div></div>
+        <div class="impact-grid reveal"><div><strong>≥80%</strong><span>แมวในพื้นที่มีข้อมูลในระบบ</span></div><div><strong>≥80%</strong><span>ผู้ใช้เข้าใจวิธีใช้ Tag/QR</span></div><div><strong>+20%</strong><span>เป้าหมายคะแนนความมั่นใจในการอยู่ร่วมกับแมว</span></div></div>
       </div>
     </section>
   </main>
 
-  <div id="profileModal" class="modal hidden" aria-hidden="true">
-    <div class="modal-backdrop" data-close="true"></div>
-    <div class="modal-panel">
-      <button class="modal-close" data-close="true" aria-label="ปิด">×</button>
-      <div id="modalContent"></div>
-    </div>
-  </div>
+  <div id="profileModal" class="modal hidden" aria-hidden="true"><div class="modal-backdrop" data-close="true"></div><div class="modal-panel"><button class="modal-close" data-close="true">×</button><div id="modalContent"></div></div></div>
+  <div id="knowledgeModal" class="modal hidden" aria-hidden="true"><div class="modal-backdrop" data-k-close="true"></div><div class="modal-panel knowledge-modal-panel"><button class="modal-close" data-k-close="true">×</button><div id="knowledgeModalContent"></div></div></div>
+  <div id="toast" class="toast" aria-live="polite"></div>
 
-  <div id="knowledgeModal" class="modal hidden" aria-hidden="true">
-    <div class="modal-backdrop" data-knowledge-close="true"></div>
-    <div class="modal-panel knowledge-modal-panel">
-      <button class="modal-close" data-knowledge-close="true" aria-label="ปิด">×</button>
-      <div id="knowledgeModalContent"></div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="container footer-inner">
-      <span><strong>MDCU CATalogue</strong> · Pree-Dalai Cat Project</span>
-      <span>คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</span>
-    </div>
-  </footer>
-
+  <footer><div class="container footer-inner"><span>MDCU CATalogue</span><span>เวชระเบียนแมวบริเวณหอพักปรีดาลัย · Prototype 2569</span></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
