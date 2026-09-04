@@ -1,0 +1,25 @@
+name: Apply knowledge popup polish
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-popup-polish.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply isolated popup CSS
+        run: |
+          printf '\n\n' >> style.css
+          cat knowledge-popup.css >> style.css
+          rm knowledge-popup.css
+          rm .github/workflows/apply-popup-polish.yml
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add style.css knowledge-popup.css .github/workflows/apply-popup-polish.yml
+          git commit -m "Polish knowledge popup only"
+          git push
