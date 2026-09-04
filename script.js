@@ -48,7 +48,8 @@ const search = document.getElementById("searchInput");
 const buttons = document.querySelectorAll(".filter");
 const modal = document.getElementById("profileModal");
 const modalContent = document.getElementById("modalContent");
-document.getElementById("catCount").textContent = cats.length;
+const catCount = document.getElementById("catCount");
+if (catCount) catCount.textContent = cats.length;
 
 let activeFilter = "all";
 
