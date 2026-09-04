@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Cat Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <span class="brand-icon">🐾</span>
+        <span>Faculty Cat Care</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#cats">แมวในคณะ</a>
+        <a href="#knowledge">ความรู้เรื่องแมว</a>
+        <a href="#about">เกี่ยวกับโครงการ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">CAMPUS CAT PROJECT</span>
+          <h1>รู้จักแมวในคณะ<br><span>ก่อนจะเข้าไปทักเขา</span></h1>
+          <p>
+            โครงการรวบรวมข้อมูลแมวประจำคณะ เพื่อให้ทุกคนรู้จักชื่อ นิสัย
+            จุดที่พบประจำ และข้อมูลการดูแลเบื้องต้น ผ่าน QR Code บนปลอกคอ
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#cats">ดูแมวทั้งหมด</a>
+            <a class="btn secondary" href="#knowledge">อ่านเกร็ดความรู้</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="qr-mock">QR</div>
+          <div>
+            <div class="mini-label">SCAN TO KNOW ME</div>
+            <h3>สแกนปลอกคอ<br>แล้วรู้จักฉันทันที</h3>
+            <p>QR ของแต่ละตัวจะพาไปยังหน้าโปรไฟล์เฉพาะตัว</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-stats">
+      <div class="container stats-grid">
+        <div><strong id="catCount">6</strong><span>แมวในระบบ</span></div>
+        <div><strong>QR</strong><span>โปรไฟล์เฉพาะตัว</span></div>
+        <div><strong>4</strong><span>หมวดความรู้</span></div>
+        <div><strong>1</strong><span>ชุมชนเดียวกัน</span></div>
+      </div>
+    </section>
+
+    <section id="cats" class="section cats-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">OUR CATS</span>
+            <h2>แมวที่คุณอาจเจอในคณะ</h2>
+          </div>
+          <p>กดที่การ์ดเพื่อเปิดโปรไฟล์แบบเดียวกับที่ QR บนปลอกคอจะพาไป</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="search">
+            <span>⌕</span>
+            <input id="searchInput" placeholder="ค้นหาชื่อ สี หรือบริเวณที่พบ..." />
+          </div>
+          <div class="filters">
+            <button class="filter active" data-filter="all">ทั้งหมด</button>
+            <button class="filter" data-filter="friendly">เป็นมิตร</button>
+            <button class="filter" data-filter="shy">ขี้อาย</button>
+            <button class="filter" data-filter="cautious">ควรระวัง</button>
+          </div>
+        </div>
+
+        <div id="catGrid" class="cat-grid"></div>
+      </div>
+    </section>
+
+    <section id="knowledge" class="section knowledge-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">CAT KNOWLEDGE</span>
+            <h2>เกร็ดความรู้ก่อนเข้าใกล้แมว</h2>
+          </div>
+        </div>
+
+        <div class="knowledge-grid">
+          <article>
+            <div class="knowledge-icon">✋</div>
+            <h3>วิธีเข้าใกล้</h3>
+            <p>ค่อย ๆ เข้าใกล้จากด้านข้าง ให้แมวเป็นฝ่ายดมมือก่อน และหลีกเลี่ยงการจับตัวทันที</p>
+          </article>
+          <article>
+            <div class="knowledge-icon">🍫</div>
+            <h3>อาหารที่ไม่ควรให้</h3>
+            <p>ช็อกโกแลต หัวหอม กระเทียม องุ่น ลูกเกด และอาหารที่มีคาเฟอีนไม่ควรให้แมวกิน</p>
+          </article>
+          <article>
+            <div class="knowledge-icon">💉</div>
+            <h3>วัคซีนและการทำหมัน</h3>
+            <p>ข้อมูลในโปรไฟล์ช่วยให้ทีมดูแลติดตามสถานะวัคซีนและการทำหมันของแต่ละตัวได้ง่ายขึ้น</p>
+          </article>
+          <article>
+            <div class="knowledge-icon">⚠️</div>
+            <h3>สัญญาณผิดปกติ</h3>
+            <p>ซึม ไม่กินอาหาร หายใจลำบาก มีแผล หรือเดินผิดปกติ ควรแจ้งทีมดูแลแทนการรักษาเอง</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="container about-card">
+        <div>
+          <span class="eyebrow">ABOUT THE PROJECT</span>
+          <h2>ทำให้การอยู่ร่วมกับแมวในคณะปลอดภัยขึ้น</h2>
+          <p>
+            โครงการนี้เชื่อมข้อมูลออนไลน์กับปลอกคอ QR เพื่อช่วยให้คนในคณะ
+            รู้จักแมวแต่ละตัวได้ง่ายขึ้น ลดการเข้าใจผิดเรื่องพฤติกรรม
+            และช่วยให้การดูแลมีข้อมูลที่เป็นระบบ
+          </p>
+        </div>
+        <div class="about-actions">
+          <a href="#" class="btn primary">Instagram โครงการ</a>
+          <span class="small-note">*เปลี่ยนลิงก์ Instagram ภายหลังได้</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="profileModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close="true">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Faculty Cat Care</span>
+      <span>Prototype website for campus cat welfare project</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
