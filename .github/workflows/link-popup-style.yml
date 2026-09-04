@@ -1,0 +1,31 @@
+name: Link popup stylesheet
+on:
+  push:
+    paths:
+      - 'popup-fix.css'
+      - '.github/workflows/link-popup-style.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Insert stylesheet link only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          link='<link rel="stylesheet" href="popup-fix.css">'
+          if link not in s:
+              s=s.replace('<link rel="stylesheet" href="style.css">','<link rel="stylesheet" href="style.css">'+link,1)
+              p.write_text(s)
+          PY
+      - name: Commit only the link change
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html
+          git diff --cached --quiet || git commit -m "Link isolated knowledge popup styling"
+          git push
