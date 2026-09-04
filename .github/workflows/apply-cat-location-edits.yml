@@ -1,0 +1,69 @@
+name: Apply cat location edits
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-cat-location-edits.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply-edits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update website content
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          # Update cat locations and remove random-cat behavior.
+          p = Path('script.js')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              'area:"หน้าอาคารเรียนรวม"': 'area:"หอพักปรีดาลัย"',
+              'area:"สวนข้างห้องสมุด"': 'area:"ตึกไผ่สิงโต"',
+              'area:"ลานจอดรถด้านหลัง"': 'area:"สนามเทนนิส"',
+              'area:"อาคารกิจกรรมนิสิต"': 'area:"หอพักนิสิตา"',
+              'area:"หน้าห้องแลบชั้น 1"': 'area:"สนามบาส"',
+          }
+          for old, new in replacements.items():
+              s = s.replace(old, new)
+          s = re.sub(r'^.*randomCatBtn.*\n?', '', s, flags=re.M)
+          p.write_text(s, encoding='utf-8')
+
+          # Remove random-cat button and update the prototype map to the six requested places.
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s = re.sub(r'^.*id="randomCatBtn".*\n?', '', s, flags=re.M)
+          s = s.replace('<div class="map-building building-a">อาคารเรียนรวม</div>', '<div class="map-building building-a">หอพักปรีดาลัย</div>')
+          s = s.replace('<div class="map-building building-b">หอพักปรีดาลัย</div>', '<div class="map-building building-b">โรงอาหาร</div>')
+          s = s.replace('<div class="map-building building-c">โรงอาหาร</div>', '<div class="map-building building-c">หอพักนิสิตา</div>')
+          s = s.replace('<div class="map-building building-d">สวน / พื้นที่พัก</div>', '<div class="map-building building-d">ตึกไผ่สิงโต</div>\n          <div class="map-building building-e">สนามเทนนิส</div>\n          <div class="map-building building-f">สนามบาส</div>')
+          pin4 = '<button class="map-pin pin-4" data-cat="oreo"><span>🐾</span><small>โอรีโอ</small></button>'
+          if 'pin-5' not in s:
+              s = s.replace(pin4, pin4 + '\n          <button class="map-pin pin-5" data-cat="tua-dam"><span>🐈‍⬛</span><small>ถั่วดำ</small></button>\n          <button class="map-pin pin-6" data-cat="mocha"><span>😽</span><small>มอคค่า</small></button>')
+          p.write_text(s, encoding='utf-8')
+
+          # Add positions for the two extra map locations/pins.
+          p = Path('style.css')
+          s = p.read_text(encoding='utf-8')
+          marker = '/* six-place-map-layout */'
+          if marker not in s:
+              s += '''\n/* six-place-map-layout */\n.building-e{left:39%;top:8%;width:20%;height:18%;background:#f3f0e8}\n.building-f{left:39%;bottom:7%;width:20%;height:18%;background:#f1ece5}\n.pin-5{left:43%;top:18%}\n.pin-6{left:46%;bottom:15%}\n@media(max-width:620px){\n  .building-e{left:34%;top:39%;width:30%;height:16%}\n  .building-f{left:35%;bottom:27%;width:30%;height:16%}\n}\n'''
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html script.js style.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Update cat locations and remove random cat mode"
+          git push
