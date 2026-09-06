@@ -1,0 +1,31 @@
+name: Rename sample cat to Punch
+on:
+  push:
+    paths:
+      - '.github/workflows/rename-cat-punch.yml'
+permissions:
+  contents: write
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename Mali to Punch in cat data and map label
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for filename in ['script.js', 'index.html']:
+              p = Path(filename)
+              s = p.read_text(encoding='utf-8')
+              s = s.replace('มะลิ', 'พั้น')
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Rename Mali to พั้น"
+            git push
+          fi
